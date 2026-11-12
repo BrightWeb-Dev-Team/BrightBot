@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.brightbot.node</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/node</string>
+    <string>/opt/brightbot/server/node-client.js</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/opt/brightbot</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>NODE_ENV</key>
+    <string>production</string>
+    <key>BRIGHTBOT_MODE</key>
+    <string>node</string>
+    <key>BRIGHTBOT_MASTER_URL</key>
+    <string>https://YOUR_BRIGHTBOT_SERVER</string>
+    <key>BRIGHTBOT_CONTROL_TOKEN</key>
+    <string>CHANGE_ME_TO_THE_SHARED_CONTROL_TOKEN</string>
+    <key>BRIGHTBOT_NODE_ID</key>
+    <string>mac-node-1</string>
+    <key>BRIGHTBOT_NODE_NAME</key>
+    <string>Mac Node</string>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>ThrottleInterval</key>
+  <integer>5</integer>
+  <key>StandardOutPath</key>
+  <string>/opt/brightbot/data/node-client.log</string>
+  <key>StandardErrorPath</key>
+  <string>/opt/brightbot/data/node-client.error.log</string>
+</dict>
+</plist>

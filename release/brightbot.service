@@ -1,0 +1,21 @@
+[Unit]
+Description=BrightBot Console
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/brightbot
+Environment=NODE_ENV=production
+Environment=PORT=8787
+Environment=HOST=0.0.0.0
+Environment=BRIGHTBOT_VNC_AUTO_START=true
+EnvironmentFile=-/opt/brightbot/.env
+ExecStart=/usr/bin/node /opt/brightbot/server/index.js
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

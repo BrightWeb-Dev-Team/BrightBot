@@ -1,0 +1,19 @@
+[Unit]
+Description=BrightBot Remote Node
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/brightbot
+Environment=NODE_ENV=production
+Environment=BRIGHTBOT_MODE=node
+EnvironmentFile=/opt/brightbot/.env
+ExecStart=/usr/bin/node /opt/brightbot/server/node-client.js
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

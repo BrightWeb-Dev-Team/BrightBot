@@ -1,0 +1,15 @@
+[Unit]
+Description=BrightBot Command Line Desktop
+After=network.target
+Before=brightbot.service
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/Xvfb :0 -screen 0 1280x720x16 -nolisten tcp -ac
+ExecStartPost=/bin/sh -c "sleep 1; DISPLAY=:0 dbus-launch --exit-with-session openbox-session >/var/log/brightbot-openbox.log 2>&1 & sleep 2; DISPLAY=:0 xterm -maximized -fa Monospace -fs 16 -bg black -fg white -title BrightBot-Terminal -e /bin/bash -l >/var/log/brightbot-xterm.log 2>&1 &"
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
